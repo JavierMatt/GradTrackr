@@ -1,0 +1,292 @@
+const encodeFeature = {
+  Marital_status: {
+    Single: 1,
+    Married: 2,
+    Widower: 3,
+    Divorced: 4,
+    "Facto union": 5,
+    "Legally separated": 6,
+  },
+  Course: {
+    "Biofuel Production Technologies": 1,
+    "Animation and Multimedia Design": 2,
+    "Social Service (evening attendance)": 3,
+    Agronomy: 4,
+    "Communication Design": 5,
+    "Veterinary Nursing": 6,
+    "Informatics Engineering": 7,
+    Equinculture: 8,
+    Management: 9,
+    "Social Service": 10,
+    Tourism: 11,
+    Nursing: 12,
+    "Oral Hygiene": 13,
+    "Advertising and Marketing Management": 14,
+    "Journalism and Communication": 15,
+    "Basic Education": 16,
+    "Management (evening attendance)": 17,
+  },
+  Daytime_evening_attendance: {
+    Daytime: 1,
+    Evening: 0,
+  },
+  Previous_qualification: {
+    "Secondary education": 1,
+    "Higher education—bachelor’s degree": 2,
+    "Higher education—degree": 3,
+    "Higher education—master’s degree": 4,
+    "Higher education—doctorate": 5,
+    "Frequency of higher education": 6,
+    "12th year of schooling—not completed": 7,
+    "11th year of schooling—not completed": 8,
+    "Other—11th year of schooling": 9,
+    "10th year of schooling": 10,
+    "10th year of schooling—not completed": 11,
+    "Basic education 3rd cycle (9th/10th/11th year) or equivalent": 12,
+    "Basic education 2nd cycle (6th/7th/8th year) or equivalent": 13,
+    "Technological specialization course": 14,
+    "Higher education—degree (1st cycle)": 15,
+    "Professional higher technical course": 16,
+    "Higher education—master’s degree (2nd cycle)": 17,
+  },
+  Mothers_qualification: {
+    "Secondary Education—12th Year of Schooling or Equivalent": 1,
+    "Higher Education—bachelor’s degree": 2,
+    "Higher Education—degree": 3,
+    "Higher Education—master’s degree": 4,
+    "Higher Education—doctorate": 5,
+    "Frequency of Higher Education": 6,
+    "12th Year of Schooling—not completed": 7,
+    "11th Year of Schooling—not completed": 8,
+    "7th Year (Old)": 9,
+    "Other—11th Year of Schooling": 10,
+    "2nd year complementary high school course": 11,
+    "10th Year of Schooling": 12,
+    "General commerce course": 13,
+    "Basic Education 3rd Cycle (9th/10th/11th Year) or Equivalent": 14,
+    "Complementary High School Course": 15,
+    "Technical-professional course": 16,
+    "Complementary High School Course—not concluded": 17,
+    "7th year of schooling": 18,
+    "2nd cycle of the general high school course": 19,
+    "9th Year of Schooling—not completed": 20,
+    "8th year of schooling": 21,
+    "General Course of Administration and Commerce": 22,
+    "Supplementary Accounting and Administration": 23,
+    Unknown: 24,
+    "Cannot read or write": 25,
+    "Can read without having a 4th year of schooling": 26,
+    "Basic education 1st cycle (4th/5th year) or equivalent": 27,
+    "Basic Education 2nd Cycle (6th/7th/8th Year) or equivalent": 28,
+    "Technological specialization course": 29,
+    "Higher education—degree (1st cycle)": 30,
+    "Specialized higher studies course": 31,
+    "Professional higher technical course": 32,
+    "Higher Education—master’s degree (2nd cycle)": 33,
+    "Higher Education—doctorate (3rd cycle)": 34,
+  },
+  Fathers_qualification: {
+    "Secondary Education—12th Year of Schooling or Equivalent": 1,
+    "Higher Education—bachelor’s degree": 2,
+    "Higher Education—degree": 3,
+    "Higher Education—master’s degree": 4,
+    "Higher Education—doctorate": 5,
+    "Frequency of Higher Education": 6,
+    "12th Year of Schooling—not completed": 7,
+    "11th Year of Schooling—not completed": 8,
+    "7th Year (Old)": 9,
+    "Other—11th Year of Schooling": 10,
+    "2nd year complementary high school course": 11,
+    "10th Year of Schooling": 12,
+    "General commerce course": 13,
+    "Basic Education 3rd Cycle (9th/10th/11th Year) or Equivalent": 14,
+    "Complementary High School Course": 15,
+    "Technical-professional course": 16,
+    "Complementary High School Course—not concluded": 17,
+    "7th year of schooling": 18,
+    "2nd cycle of the general high school course": 19,
+    "9th Year of Schooling—not completed": 20,
+    "8th year of schooling": 21,
+    "General Course of Administration and Commerce": 22,
+    "Supplementary Accounting and Administration": 23,
+    Unknown: 24,
+    "Cannot read or write": 25,
+    "Can read without having a 4th year of schooling": 26,
+    "Basic education 1st cycle (4th/5th year) or equivalent": 27,
+    "Basic Education 2nd Cycle (6th/7th/8th Year) or equivalent": 28,
+    "Technological specialization course": 29,
+    "Higher education—degree (1st cycle)": 30,
+    "Specialized higher studies course": 31,
+    "Professional higher technical course": 32,
+    "Higher Education—master’s degree (2nd cycle)": 33,
+    "Higher Education—doctorate (3rd cycle)": 34,
+  },
+
+  Mothers_occupation: {
+    Student: 1,
+    "Representatives of the Legislative Power and Executive Bodies, Directors, Directors and Executive Managers": 2,
+    "Specialists in Intellectual and Scientific Activities": 3,
+    "Intermediate Level Technicians and Professions": 4,
+    "Administrative staff": 5,
+    "Personal Services, Security and Safety Workers, and Sellers": 6,
+    "Farmers and Skilled Workers in Agriculture, Fisheries, and Forestry": 7,
+    "Skilled Workers in Industry, Construction, and Craftsmen": 8,
+    "Installation and Machine Operators and Assembly Workers": 9,
+    "Unskilled Workers": 10,
+    "Armed Forces Professions": 11,
+    "Other Situation": 12,
+    "(blank)": 13,
+    "Armed Forces Officers": 14,
+    "Armed Forces Sergeants": 15,
+    "Other Armed Forces personnel": 16,
+    "Directors of administrative and commercial services": 17,
+    "Hotel, catering, trade, and other services directors": 18,
+    "Specialists in the physical sciences, mathematics, engineering, and related techniques": 19,
+    "Health professionals": 20,
+    Teachers: 21,
+    "Specialists in finance, accounting, administrative organization, and public and commercial relations": 22,
+    "Intermediate level science and engineering technicians and professions": 23,
+    "Technicians and professionals of intermediate level of health": 24,
+    "Intermediate level technicians from legal, social, sports, cultural, and similar services": 25,
+    "Information and communication technology technicians": 26,
+    "Office workers, secretaries in general, and data processing operators": 27,
+    "Data, accounting, statistical, financial services, and registry-related operators": 28,
+    "Other administrative support staff": 29,
+    "Personal service workers": 30,
+    Sellers: 31,
+    "Personal care workers and the like": 32,
+    "Protection and security services personnel": 33,
+    "Market-oriented farmers and skilled agricultural and animal production workers": 34,
+    "Farmers, livestock keepers, fishermen, hunters and gatherers, and subsistence": 35,
+    "Skilled construction workers and the like, except electricians": 36,
+    "Skilled workers in metallurgy, metalworking, and similar": 37,
+    "Skilled workers in electricity and electronics": 38,
+    "Workers in food processing, woodworking, and clothing and other industries and crafts": 39,
+    "Fixed plant and machine operators": 40,
+    "Assembly workers": 41,
+    "Vehicle drivers and mobile equipment operators": 42,
+    "Unskilled workers in agriculture, animal production, and fisheries and forestry": 43,
+    "Unskilled workers in extractive industry, construction, manufacturing, and transport": 44,
+    "Meal preparation assistants": 45,
+    "Street vendors (except food) and street service providers": 46,
+  },
+  Fathers_occupation: {
+    Student: 1,
+    "Representatives of the Legislative Power and Executive Bodies, Directors, Directors and Executive Managers": 2,
+    "Specialists in Intellectual and Scientific Activities": 3,
+    "Intermediate Level Technicians and Professions": 4,
+    "Administrative staff": 5,
+    "Personal Services, Security and Safety Workers, and Sellers": 6,
+    "Farmers and Skilled Workers in Agriculture, Fisheries, and Forestry": 7,
+    "Skilled Workers in Industry, Construction, and Craftsmen": 8,
+    "Installation and Machine Operators and Assembly Workers": 9,
+    "Unskilled Workers": 10,
+    "Armed Forces Professions": 11,
+    "Other Situation": 12,
+    "(blank)": 13,
+    "Armed Forces Officers": 14,
+    "Armed Forces Sergeants": 15,
+    "Other Armed Forces personnel": 16,
+    "Directors of administrative and commercial services": 17,
+    "Hotel, catering, trade, and other services directors": 18,
+    "Specialists in the physical sciences, mathematics, engineering, and related techniques": 19,
+    "Health professionals": 20,
+    Teachers: 21,
+    "Specialists in finance, accounting, administrative organization, and public and commercial relations": 22,
+    "Intermediate level science and engineering technicians and professions": 23,
+    "Technicians and professionals of intermediate level of health": 24,
+    "Intermediate level technicians from legal, social, sports, cultural, and similar services": 25,
+    "Information and communication technology technicians": 26,
+    "Office workers, secretaries in general, and data processing operators": 27,
+    "Data, accounting, statistical, financial services, and registry-related operators": 28,
+    "Other administrative support staff": 29,
+    "Personal service workers": 30,
+    Sellers: 31,
+    "Personal care workers and the like": 32,
+    "Protection and security services personnel": 33,
+    "Market-oriented farmers and skilled agricultural and animal production workers": 34,
+    "Farmers, livestock keepers, fishermen, hunters and gatherers, and subsistence": 35,
+    "Skilled construction workers and the like, except electricians": 36,
+    "Skilled workers in metallurgy, metalworking, and similar": 37,
+    "Skilled workers in electricity and electronics": 38,
+    "Workers in food processing, woodworking, and clothing and other industries and crafts": 39,
+    "Fixed plant and machine operators": 40,
+    "Assembly workers": 41,
+    "Vehicle drivers and mobile equipment operators": 42,
+    "Unskilled workers in agriculture, animal production, and fisheries and forestry": 43,
+    "Unskilled workers in extractive industry, construction, manufacturing, and transport": 44,
+    "Meal preparation assistants": 45,
+    "Street vendors (except food) and street service providers": 46,
+  },
+};
+function encodeFeatures(rawInput, model = "lgbm") {
+  if (!rawInput) return null;
+
+  const encoded = {};
+
+  // Field mapping between form names and encoded names
+  const fieldMap = {
+    maritalStatus: "Marital_status",
+    course: "Course",
+    daytimeEveningAttendance: "Daytime_evening_attendance",
+    previousQualification: "Previous_qualification",
+    mothersQualification: "Mothers_qualification",
+    fathersQualification: "Fathers_qualification",
+    mothersOccupation: "Mothers_occupation",
+    fathersOccupation: "Fathers_occupation",
+  };
+
+  // Encode categorical features
+  for (const [formKey, encodedKey] of Object.entries(fieldMap)) {
+    const formValue = rawInput[formKey];
+    const mapping = encodeFeature[encodedKey];
+
+    if (mapping && formValue && mapping[formValue] !== undefined) {
+      encoded[encodedKey] = mapping[formValue];
+    } else {
+      encoded[encodedKey] = null;
+    }
+  }
+
+  // Encode boolean features
+  encoded.Displaced = rawInput.displaced === "Yes" ? 1 : 0;
+  encoded.Educational_special_needs =
+    rawInput.educationalSpecialNeeds === "Yes" ? 1 : 0;
+  encoded.Tuition_fees_up_to_date =
+    rawInput.tuitionFeesUpToDate === "Yes" ? 1 : 0;
+  encoded.Scholarship_holder = rawInput.scholarshipHolder === "Yes" ? 1 : 0;
+  encoded.Gender = rawInput.gender === "Female" ? 0 : 1;
+
+  // Convert numerical fields
+  const numericalFields = {
+    applicationOrder: "Application_order",
+    ageAtEnrollment: "Age_at_enrollment",
+    firstSemCredited: "Curricular_units_1st_sem_credited",
+    firstSemEnrolled: "Curricular_units_1st_sem_enrolled",
+    firstSemEvaluations: "Curricular_units_1st_sem_evaluations",
+    firstSemWithoutEvaluations: "Curricular_units_1st_sem_without_evaluations",
+    firstSemApproved: "Curricular_units_1st_sem_approved",
+    firstSemGrade: "Curricular_units_1st_sem_grade",
+    secondSemCredited: "Curricular_units_2nd_sem_credited",
+    secondSemEnrolled: "Curricular_units_2nd_sem_enrolled",
+    secondSemEvaluations: "Curricular_units_2nd_sem_evaluations",
+    secondSemWithoutEvaluations: "Curricular_units_2nd_sem_without_evaluations",
+    secondSemApproved: "Curricular_units_2nd_sem_approved",
+    secondSemGrade: "Curricular_units_2nd_sem_grade",
+    unemploymentRate: "Unemployment_rate",
+    inflationRate: "Inflation_rate",
+    gdp: "GDP",
+  };
+
+  for (const [formKey, encodedKey] of Object.entries(numericalFields)) {
+    const value = parseFloat(rawInput[formKey]);
+    encoded[encodedKey] = isNaN(value) ? 0 : value;
+  }
+
+  // Add model selection (supporting multiple models)
+  encoded.model = model.toLowerCase(); // Ensure consistent casing
+
+  return encoded;
+}
+
+export default encodeFeatures;
